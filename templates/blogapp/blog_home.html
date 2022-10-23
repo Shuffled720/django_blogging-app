@@ -7,12 +7,17 @@
 {% block body %}
 
     <div class='container my-3'>
-      <div class='d-flex'>
+      <div class='d-flex justify-content-between align-items-center'>
 
         <h1>Blogs</h1>
-        {% comment %} {% if request.user.is_authenticated%}
-        <a class="nav-link "" href="createBlog">Home <span class="sr-only"></span></a>        
-        {% endif %} {% endcomment %}
+       {% if request.user.is_authenticated%}
+       
+        
+        <a class="nav-link "" href="/blog/createBlog"><i class="fa-solid fa-pen-nib"></i>Create Blog <span class="sr-only"></span></a>
+       
+
+               
+        {% endif %} 
       </div>
         <div class="row mb-2">
             {% for post in posts %}

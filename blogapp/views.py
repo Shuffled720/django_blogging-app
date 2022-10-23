@@ -48,6 +48,22 @@ def postComment(request):
             messages.success(request, "Your reply has been posted successfully")
         return redirect(f"/blog/{post.slug}")
 
-# def createBlog(request):
-#     return render('blog_create.html')
+def createBlog(request):
+
+
+    if request.method=="POST":
+        user=request.user
+        title=request.POST.get('title')
+        content=request.POST.get('content')
+        author=user.username
+        post=Post(title=title, content=content, author=author )
+        post.save()
+        messages.success(request, 'Blog created successfully!!!')
+
+
+
+        
+
+
+    return render(request, "blogapp/createBlog.html")
 
