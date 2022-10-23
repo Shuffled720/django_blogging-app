@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Bloggy | Blogs{% endblock title %}
+
+{% block blogactive %}active{% endblock blogactive %}
+
+{% block body %}
+
+    <div class='container my-3'>
+      <div class='d-flex'>
+
+        <h1>Blogs</h1>
+        {% if request.user.is_authenticated%}
+        <a class="nav-link "" href="blog/createBlog">Home <span class="sr-only"></span></a>        
+        {% endif %}
+      </div>
+        <div class="row mb-2">
+            {% for post in posts %}
+            <div class="col-md-12">
+              <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                  <strong class="d-inline-block mb-2 text-primary">{{post.author}}</strong>
+                  <h3 class="mb-0">{{post.title}}</h3>
+                  <div class="mb-1 text-muted">Nov 12</div>
+                  <p class="card-text mb-auto">{{post.content | truncatechars:300}}</p>
+                  <div >
+                      <a href="/blog/{{post.slug}}" role='button' class="stretched-link btn btn-primary">Continue reading</a>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            {% endfor %}
+    </div>
+{% endblock body %}
