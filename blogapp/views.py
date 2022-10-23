@@ -48,6 +48,6 @@ def postComment(request):
             messages.success(request, "Your reply has been posted successfully")
         return redirect(f"/blog/{post.slug}")
 
-def createBlog(request):
-    return HttpResponse("bsdbfkdbfkjs")
+# def createBlog(request):
+#     return render('blog_create.html')
 

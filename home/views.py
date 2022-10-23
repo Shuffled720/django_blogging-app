@@ -97,10 +97,10 @@ def blog(request):
 def contact(request):
 
     if(request.method=='POST'):
-        name=request.POST.get['name']
-        email=request.POST.get['email']
-        phone=request.POST.get['phone']
-        content=request.POST.get['content']
+        name=request.POST.get('name')
+        email=request.POST.get('email')
+        phone=request.POST.get('phone')
+        content=request.POST.get('content')
         contact=Contact(name=name, email=email, phone=phone, content=content)
         contact.save()
         messages.success(request, 'Message sent!!!')
